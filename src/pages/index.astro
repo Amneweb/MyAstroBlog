@@ -1,19 +1,7 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Bienvenidos a mi blog";
 ---
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Amneweb</title>
-  </head>
-  <body>
-	    <a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
-    <h1>Bienvenidos a mi blog</h1>
-	<p>¿De qué vamos a hablar? De programación y de navegación a vela. Ya sé, no tienen nada que ver, pero eso es lo divertido.</p>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>¿Qué vas a encontrar por acá?</h2>
+</BaseLayout>

@@ -1,20 +1,47 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle="Quién soy";
+
+
+const identity = {
+  firstName: "Amneris",
+  country: "Argentina",
+  occupation: "Programadora",
+  hobbies: ["navegar a vela", "escribir en mi blog", "leer"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "MUI"];
+const skillColor = "navy";
+const fontWeight="bold";
+const textCase = "uppercase"
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Amneweb</title>
-  </head>
-  <body>
-    <a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
-
-    <h1>¿Quién soy?</h1>
-	<p>Mi nombre es Amneris Calle, tengo 55 años y soy fanática de la programación y las computadoras.</p>
-  </body>
-</html>
+	<BaseLayout pageTitle={pageTitle}>
+    <p>Mi nombre es Amneris Calle, tengo 55 años y me encanta la programación, en especial lo referido a desarrollo web.</p>
+    
+        <p>A continuación les paso algunos datos:</p>
+    <ul>
+     
+      <li>Vivo {identity.country} y trabajo como {identity.occupation}.</li>
+      {identity.hobbies.length >= 2 &&
+        <li>Dos de mis hobbies son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+      }
+    </ul>
+    <p>No soy experta pero sé bastante de:</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+    <p>Y estoy aprendiendo ASTRO 💪</p>
+     <style is:global define:vars={{skillColor,fontWeight,textCase}}>
+          h1 {
+            color: purple;
+            font-size: 4rem;
+          }
+          .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+     
+      }
+        </style>
+  </BaseLayout>
